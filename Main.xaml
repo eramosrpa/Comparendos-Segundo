@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="772,727" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1257,827" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
       <x:String>System.Activities</x:String>
@@ -158,19 +158,19 @@
                   <av:PointCollection x:Key="ConnectorLocation">130,442.04 130,472.04 160,472.04 160,474.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_20">
+              <Sequence sap:VirtualizedContainerService.HintSize="1218,6343" sap2010:WorkflowViewState.IdRef="Sequence_20">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[datatable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1176,5420" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
+                <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[datatable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1176,6251" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
                   <ui:ForEachRow.Body>
                     <ActivityAction x:TypeArguments="sd:DataRow">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1126,5272" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1126,6103" sap2010:WorkflowViewState.IdRef="Sequence_19">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="ui:GenericValue" Name="nit" />
                           <Variable x:TypeArguments="ui:GenericValue" Name="comparendo" />
@@ -184,7 +184,7 @@
                           <Variable x:TypeArguments="x:String" Name="valor" />
                           <Variable x:TypeArguments="x:String" Name="codigo" />
                           <Variable x:TypeArguments="x:String" Name="RoC" />
-                          <Variable x:TypeArguments="x:String" Name="Nresolucion" />
+                          <Variable x:TypeArguments="ui:GenericValue" Name="Nresolucion" />
                           <Variable x:TypeArguments="x:Int32" Default="1" Name="cont" />
                           <Variable x:TypeArguments="ui:GenericValue" Name="tipoDocumento" />
                         </Sequence.Variables>
@@ -218,7 +218,7 @@
                         </ui:GetRowItem>
                         <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="3" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="1084,64" sap2010:WorkflowViewState.IdRef="GetRowItem_13" Row="[row]">
                           <ui:GetRowItem.Value>
-                            <OutArgument x:TypeArguments="x:String">[Nresolucion]</OutArgument>
+                            <OutArgument x:TypeArguments="ui:GenericValue">[Nresolucion]</OutArgument>
                           </ui:GetRowItem.Value>
                         </ui:GetRowItem>
                         <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="4" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="1084,64" sap2010:WorkflowViewState.IdRef="GetRowItem_14" Row="[row]">
@@ -226,9 +226,24 @@
                             <OutArgument x:TypeArguments="ui:GenericValue">[tipoDocumento]</OutArgument>
                           </ui:GetRowItem.Value>
                         </ui:GetRowItem>
-                        <If Condition="[String.IsNullOrEmpty(nit) Or String.IsNullOrEmpty(comparendo) Or String.IsNullOrEmpty(tipoDocumento) Or comparendo.Contains(&quot;Banco:&quot;) Or comparendo.Contains(&quot;Tipo de Documento:&quot;)]" sap:VirtualizedContainerService.HintSize="1084,237" sap2010:WorkflowViewState.IdRef="If_11">
+                        <If Condition="[String.IsNullOrEmpty(comparendo)]" sap:VirtualizedContainerService.HintSize="1084,237" sap2010:WorkflowViewState.IdRef="If_12">
                           <If.Then>
-                            <ui:Continue sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Continue_5" />
+                            <ui:Continue sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Continue_6" />
+                          </If.Then>
+                        </If>
+                        <If Condition="[String.IsNullOrEmpty(tipoDocumento)]" sap:VirtualizedContainerService.HintSize="1084,237" sap2010:WorkflowViewState.IdRef="If_13">
+                          <If.Then>
+                            <ui:Continue sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Continue_7" />
+                          </If.Then>
+                        </If>
+                        <If Condition="[comparendo.Equals(&quot;Banco:&quot;)]" sap:VirtualizedContainerService.HintSize="1084,237" sap2010:WorkflowViewState.IdRef="If_14">
+                          <If.Then>
+                            <ui:Continue sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Continue_8" />
+                          </If.Then>
+                        </If>
+                        <If Condition="[comparendo.Equals(&quot;Tipo de Documento:&quot;)]" sap:VirtualizedContainerService.HintSize="1084,237" sap2010:WorkflowViewState.IdRef="If_15">
+                          <If.Then>
+                            <ui:Continue sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Continue_9" />
                           </If.Then>
                         </If>
                         <If Condition="[String.IsNullOrEmpty(nit)]" sap:VirtualizedContainerService.HintSize="1084,4283" sap2010:WorkflowViewState.IdRef="If_10">
@@ -370,7 +385,7 @@
                                       </ui:CursorPosition>
                                     </ui:Click.CursorPosition>
                                     <ui:Click.Target>
-                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a9216b1e-8514-479b-9d5c-c723ff5c6c42" InformativeScreenshot="4c7df1899cd59a9cc76337e0f12e1b2c" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Estado Cuenta - Google Chrome' idx='*' /&gt;&lt;ctrl name='consulta.simit.org.co dice' role='dialog' /&gt;&lt;ctrl name='Aceptar' role='push button' /&gt;">
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a9216b1e-8514-479b-9d5c-c723ff5c6c42" InformativeScreenshot="4c7df1899cd59a9cc76337e0f12e1b2c" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' omit:title='*Google Chrome' idx='*' /&gt;&lt;ctrl omit:name='*simit.org.co dice' role='dialog' /&gt;&lt;ctrl name='Aceptar' role='push button' /&gt;">
                                         <ui:Target.TimeoutMS>
                                           <InArgument x:TypeArguments="x:Int32" />
                                         </ui:Target.TimeoutMS>
@@ -832,7 +847,7 @@
                           <av:Size x:Key="ShapeSize">200,51</av:Size>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Comparendos segundo  finalizado&quot;]" />
+                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Comparendos segundo  finalizado&quot;]" />
                     </FlowStep>
                   </FlowStep.Next>
                 </FlowStep>
@@ -860,7 +875,7 @@
                 <OutArgument x:TypeArguments="x:String">[rutaComparendoSegundo]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">["C:\Users\jparra\OneDrive\RPA\COMPARENDOS\DATOS\"]</InArgument>
+                <InArgument x:TypeArguments="x:String">["C:\Users\PRUEBAS RPA\Documents\COMPARENDOS\DATOS\"]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
@@ -868,7 +883,7 @@
                 <OutArgument x:TypeArguments="x:String">[rutaComparendoSegundoCaptura]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">C:\Users\jparra\OneDrive\RPA\COMPARENDOS\CAPTURAS\</InArgument>
+                <InArgument x:TypeArguments="x:String">["C:\Users\PRUEBAS RPA\Documents\COMPARENDOS\CAPTURAS\"]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
           </scg:List>
